@@ -47,31 +47,31 @@ func TestAdminServerAccess(t *testing.T) {
 	}
 
 	roTests := []test{
-		{"/api/manual", 403},
-		{"/api/paths", 403},
-		{"/api/config", 200},
-		{"/api/routes", 200},
-		{"/api/version", 200},
-		{"/manual", 403},
-		{"/routes", 200},
+		{"/fabio/api/manual", 403},
+		{"/fabio/api/paths", 403},
+		{"/fabio/api/config", 200},
+		{"/fabio/api/routes", 200},
+		{"/fabio/api/version", 200},
+		{"/fabio/manual", 403},
+		{"/fabio/routes", 200},
 		{"/health", 200},
-		{"/assets/logo.svg", 200},
-		{"/assets/logo.bw.svg", 200},
-		{"/", 303},
+		{"/fabio/assets/logo.svg", 200},
+		{"/fabio/assets/logo.bw.svg", 200},
+		{"/fabio/", 303},
 	}
 
 	rwTests := []test{
-		{"/api/manual", 200},
-		{"/api/paths", 200},
-		{"/api/config", 200},
-		{"/api/routes", 200},
-		{"/api/version", 200},
-		{"/manual", 200},
-		{"/routes", 200},
+		{"/fabio/api/manual", 200},
+		{"/fabio/api/paths", 200},
+		{"/fabio/api/config", 200},
+		{"/fabio/api/routes", 200},
+		{"/fabio/api/version", 200},
+		{"/fabio/manual", 200},
+		{"/fabio/routes", 200},
 		{"/health", 200},
-		{"/assets/logo.svg", 200},
-		{"/assets/logo.bw.svg", 200},
-		{"/", 303},
+		{"/fabio/assets/logo.svg", 200},
+		{"/fabio/assets/logo.bw.svg", 200},
+		{"/fabio/", 303},
 	}
 
 	testAccess("ro", roTests)

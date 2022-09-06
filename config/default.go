@@ -105,7 +105,7 @@ var defaultConfig = &Config{
 	Tracing: Tracing{
 		TracingEnabled: false,
 		CollectorType:  "http",
-		ConnectString:  "http://localhost:9411/api/v1/spans",
+		ConnectString:  "http://localhost:9411/fabio/api/v1/spans",
 		ServiceName:    "Fabiolb",
 		Topic:          "Fabiolb-Kafka-Topic",
 		SamplerRate:    -1,

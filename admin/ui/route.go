@@ -23,10 +23,10 @@ var tmplRoutes = template.Must(template.New("routes").Parse( // language=HTML
 <head>
 	<meta charset="utf-8">
 	<title>fabio{{if .Title}} - {{.Title}}{{end}}</title>
-	<script type="text/javascript" src="/assets/code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link href="/assets/fonts/material-icons.css" rel="stylesheet">
-	<link rel="stylesheet" href="/assets/cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<script src="/assets/cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script type="text/javascript" src="/fabio/assets/code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link href="/fabio/assets/fonts/material-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="/fabio/assets/cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="/fabio/assets/cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 	<style type="text/css">
@@ -47,7 +47,7 @@ var tmplRoutes = template.Must(template.New("routes").Parse( // language=HTML
 
 	<div class="container">
 		<div class="nav-wrapper">
-			<a href="/" class="brand-logo">fabio{{if .Title}} - {{.Title}}{{end}}</a>
+			<a href="/fabio/" class="brand-logo">fabio{{if .Title}} - {{.Title}}{{end}}</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a class="dropdown-trigger dropdown-button" href="#" data-target="overrides">Overrides<i class="material-icons right">arrow_drop_down</i></a></li>
 				<li><a href="https://github.com/fabiolb/fabio/blob/master/CHANGELOG.md">{{.Version}}</a></li>
@@ -67,7 +67,7 @@ var tmplRoutes = template.Must(template.New("routes").Parse( // language=HTML
 	</div>
 
 	<div class="section footer">
-		<img alt="Fabio Logo" class="logo" src="/assets/logo.svg">
+		<img alt="Fabio Logo" class="logo" src="/fabio/assets/logo.svg">
 	</div>
 
 </div>
@@ -132,7 +132,7 @@ $(function(){
 		doFilter(v);
 	});
 
-	$.get("/api/routes", function(data) {
+	$.get("/fabio/api/routes", function(data) {
 		renderRoutes(data);
 		if (!params.filter) return;
 		const v = decodeURIComponent(params.filter);
@@ -140,7 +140,7 @@ $(function(){
 		doFilter(v);
 	});
 
-	$.get('/api/paths', function(data) {
+	$.get('/fabio/api/paths', function(data) {
 		const d = $("#overrides");
 		$.each(data, function(idx, val) {
 			let path = val;
@@ -149,7 +149,7 @@ $(function(){
 			}
 			d.append(
 				$('<li />').append(
-					$('<a />').attr('href', '/manual'+path).text(val)
+					$('<a />').attr('href', '/fabio/manual'+path).text(val)
 				)
 			);
 		});
